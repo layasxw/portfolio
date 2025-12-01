@@ -1,6 +1,16 @@
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
 }
 
 header {
@@ -11,17 +21,25 @@ header {
     padding: 4px;
     font-size: 14px;
     font-weight: 300;
-    margin: 10px 400px ;
+    margin: 10px auto;
+    width: 90%;
+    max-width: 1200px;
 }
 
 nav {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
 }
 
 a {
     text-decoration: none;
     color: rgb(78, 78, 78);
-    margin: 0 24px;
+    margin: 0;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 a:hover {
@@ -36,96 +54,292 @@ h1, h2 {
 
 h1 {
     font-weight: 500;
-    font-size: 55px;
-    margin: 0 0 70px 0;
+    font-size: clamp(32px, 8vw, 55px);
+    margin: 0 0 40px 0;
 }
 
 h2 {
     font-weight: 300;
-    font-size: 20px;
+    font-size: clamp(16px, 4vw, 20px);
     margin: 12px 0;
 }
 
 p {
     color: rgb(78, 78, 78);
     font-weight: 300;
-    font-size: 18px;
+    font-size: clamp(14px, 3vw, 18px);
     margin-bottom: 40px;
-
+    line-height: 1.6;
 }
+
 .container {
     display: flex;
-    align-items: inline;
+    align-items: center;
     justify-content: space-between;
-    margin: 100px 140px;
+    gap: 30px;
+    margin: 60px auto;
+    padding: 0 20px;
+    max-width: 1200px;
+    width: 100%;
 }
 
 .textContainer {
-    max-width: 45%;
-    margin-right: 150px;
+    flex: 1;
+    min-width: 0;
 }
 
 img {
-    max-width: 50%;
+    flex: 1;
+    max-width: 100%;
     height: auto;
+    object-fit: contain;
 }
 
 footer {
     background-color: rgb(250, 211, 217);
-    max-width: 100%;
-    height: 200px;
+    width: 100%;
+    padding: 40px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 60px;
 }
 
-
-/* посмотреть почему размер текста не контролируется*/
-footer h6 {
+footer p {
     font-weight: 300;
     color: black;
-    size: 16px;
+    font-size: clamp(14px, 2vw, 16px);
+    text-align: center;
 }
 
-
-@media (max-width: 600px) {
+/* Mobile devices (320px - 480px) */
+@media (max-width: 480px) {
     header {
-        flex-direction: row;
-        justify-content: center;
-        max-width: 100%;
-        padding: 10px;
-        margin: 20px 50px;
+        width: 95%;
+        margin: 8px auto;
+        padding: 8px;
+        border-radius: 25px;
     }
 
     nav {
-        flex-direction: row;
-        max-width: 100%;
-        gap: 20px;
+        gap: 8px;
     }
 
     a {
-        margin: 0;
+        padding: 0 10px;
+        font-size: 12px;
+        margin: 0 2px;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin: 0 0 30px 0;
+    }
+
+    h2 {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+
+    p {
+        font-size: 14px;
+        margin-bottom: 25px;
     }
 
     .container {
         flex-direction: column;
-        margin: 70px 50px;
+        margin: 40px auto;
+        padding: 0 15px;
+        gap: 20px;
     }
 
     .textContainer {
+        width: 100%;
+        margin: 0;
+    }
+
+    img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    footer {
+        padding: 30px 15px;
+        margin-top: 40px;
+    }
+}
+
+/* Small tablets & large phones (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    header {
+        width: 92%;
+        margin: 10px auto;
+        padding: 4px 16px;
+        border-radius: 30px;
+    }
+
+    nav {
+        gap: 10px;
+    }
+
+    a {
+        padding: 0 12px;
+        font-size: 13px;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin: 0 0 35px 0;
+    }
+
+    h2 {
+        font-size: 18px;
+        margin: 12px 0;
+    }
+
+    p {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .container {
+        flex-direction: column;
+        margin: 50px auto;
+        padding: 0 25px;
+        gap: 25px;
+    }
+
+    .textContainer {
+        width: 100%;
         max-width: 100%;
         margin: 0;
     }
 
     img {
-        max-width: 100%;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    footer {
+        padding: 35px 25px;
+        margin-top: 50px;
     }
 }
 
+/* Tablets & small laptops (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    header {
+        width: 85%;
+        margin: 10px auto;
+        padding: 4px 20px;
+        border-radius: 35px;
+    }
 
+    nav {
+        gap: 15px;
+    }
 
-@media (min-width: 600px) and (max-width: 900px) {
-    .card {
-        width: 50%;
+    a {
+        padding: 0 14px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 45px;
+        margin: 0 0 50px 0;
+    }
+
+    h2 {
+        font-size: 19px;
+        margin: 12px 0;
+    }
+
+    p {
+        font-size: 17px;
+        margin-bottom: 35px;
+    }
+
+    .container {
+        flex-direction: row;
+        margin: 80px auto;
+        padding: 0 40px;
+        gap: 40px;
+        justify-content: space-between;
+    }
+
+    .textContainer {
+        flex: 1;
+        max-width: 50%;
+        margin: 0;
+    }
+
+    img {
+        flex: 1;
+        max-width: 50%;
+    }
+
+    footer {
+        padding: 40px 40px;
+        margin-top: 60px;
+    }
+}
+
+/* Large laptops & desktops (1025px+) */
+@media (min-width: 1025px) {
+    header {
+        width: 80%;
+        margin: 10px auto;
+        padding: 4px;
+        border-radius: 35px;
+    }
+
+    nav {
+        gap: 24px;
+    }
+
+    a {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 55px;
+        margin: 0 0 70px 0;
+    }
+
+    h2 {
+        font-size: 20px;
+        margin: 12px 0;
+    }
+
+    p {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
+
+    .container {
+        flex-direction: row;
+        margin: 100px auto;
+        padding: 0 40px;
+        max-width: 1400px;
+        gap: 60px;
+        justify-content: space-between;
+    }
+
+    .textContainer {
+        flex: 0 1 45%;
+        max-width: 45%;
+        margin: 0;
+    }
+
+    img {
+        flex: 0 1 50%;
+        max-width: 50%;
+    }
+
+    footer {
+        padding: 50px 40px;
+        margin-top: 100px;
     }
 }
